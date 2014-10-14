@@ -1,0 +1,16 @@
+.idea
+logs
+**/*.iml
+**/*.ipr
+**/*.iws
+target
+.gradle
+out
+build
+gradle-wrapper.properties
+.DS_Store
+.gradletasknamecache
+.classpath
+.project
+.settings
+bin/*

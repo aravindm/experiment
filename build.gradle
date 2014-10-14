@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+group = 'gg'
+version = '1.0-SNAPSHOT'
+description = "java port of https://github.com/github/dat-science uses codahale for metrics"
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.projectlombok:lombok:1.14.8',
+            'com.codahale.metrics:metrics-core:3.0.2',
+            'commons-logging:commons-logging:1.2')
+    testCompile "junit:junit:4.11"
+}
