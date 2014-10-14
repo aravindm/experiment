@@ -52,11 +52,10 @@ public class Experiment<I, OO, NO> {
     public void verifyAndRecord(Timed<OO> oldFlowOutput, I input) {
         if (intStream.next() < percentOfTimesToExecute) {
             Timed<NO> newFlowOutput = execAndTime(newFlow).apply(input);
-            metricRegistry.timer(name + "oldFlow").update(oldFlowOutput.getTimeInNanos(), TimeUnit.NANOSECONDS);
-            metricRegistry.timer(name + "newFlow").update(newFlowOutput.getTimeInNanos(), TimeUnit.NANOSECONDS);
-            boolean isMismatch = newFlowOutput.getValue().equals(oldFlowOutput.getValue());
-            String metricName = isMismatch ? "match" : "mismatch";
-            metricRegistry.counter(name + metricName).inc();
+            metricRegistry.timer(name + "OldFlow").update(oldFlowOutput.getTimeInNanos(), TimeUnit.NANOSECONDS);
+            metricRegistry.timer(name + "NewFlow").update(newFlowOutput.getTimeInNanos(), TimeUnit.NANOSECONDS);
+            boolean isMismatch = !newFlowOutput.getValue().equals(oldFlowOutput.getValue());
+            metricRegistry.counter(name + (isMismatch ? "Mismatch" : "Match")).inc();
             if (isMismatch)
                 log.error(String.format("Mismatch:- Input: %s OldFlowOutput:%s NewFlowOutput:%s", input, oldFlowOutput.getValue(), newFlowOutput.getValue()));
         }
