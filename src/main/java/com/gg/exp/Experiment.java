@@ -61,7 +61,7 @@ public class Experiment<I, OO, NO> {
         }
     }
 
-    public Map<String, Metric> getAll() {
+    public Map<String, Metric> getAllMetrics() {
         return metricRegistry.getMetrics();
     }
 
