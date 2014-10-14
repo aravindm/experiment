@@ -18,5 +18,5 @@ exp1.run(4);
 exp1.run(20);
 exp1.run(30);
 exp1.run(8);
-System.out.println(exp1.getAll())
+System.out.println(exp1.getAllMetrics())
 ```
