@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 @CommonsLog
-public class Experiment<OO, NO, I> {
+public class Experiment<I, OO, NO> {
     public Function<I, OO> oldFlow;
     public Function<I, NO> newFlow;
     private MetricRegistry metricRegistry;
